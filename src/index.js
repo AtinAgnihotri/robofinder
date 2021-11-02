@@ -2,16 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Card from './Card';
+import CardList from './CardList';
+import App from './App';
 import 'tachyons';
+import { robots } from './robots'; // Destructure where there's no export default
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <div>
-      <Card name="Bender" email="bender@planetexpress.te"/>
-      <Card name="BT-7274" email="bt_7274@defendfrontier.org"/>
-      <Card name="Legion" email="legion.geth@sr2.normandy.al"/>
-    </div>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
