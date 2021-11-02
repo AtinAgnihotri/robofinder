@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import Hello from './Hello';
 import reportWebVitals from './reportWebVitals';
+import Card from './Card';
+import 'tachyons';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <h1> Hello </h1> */}
-    <Hello greeting={ 'Hello React Ninja' }/>
-    <App />
+    <div>
+      <Card name="Bender" email="bender@planetexpress.te"/>
+      <Card name="BT-7274" email="bt_7274@defendfrontier.org"/>
+      <Card name="Legion" email="legion.geth@sr2.normandy.al"/>
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );
