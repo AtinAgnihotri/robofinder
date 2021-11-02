@@ -5,9 +5,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background: linear-gradient(to bottom); */
+  /* background: linear-gradient(down, rgba(0,22,255,1), rgba(2,3,44,0.5)); */
+  background: linear-gradient(to right, rgb(16, 191, 147) 0%, rgb(29, 180, 235) 50%, rgb(50,50,250) 100%);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  color: whitesmoke;
+}
+
+
