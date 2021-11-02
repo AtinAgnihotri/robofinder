@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Hello from './Hello';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <h1> Hello </h1>
+    {/* <h1> Hello </h1> */}
+    <Hello greeting={ 'Hello React Ninja' }/>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
