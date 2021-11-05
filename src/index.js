@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 // import CardList from './CardList';
-import App from './App';
+import App from './containers/App';
 import 'tachyons';
 // import { robots } from './robots'; // Destructure where there's no export default
 
