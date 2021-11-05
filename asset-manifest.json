@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/robofinder/static/css/main.d499ce04.chunk.css",
+    "main.js": "/robofinder/static/js/main.682921ea.chunk.js",
+    "main.js.map": "/robofinder/static/js/main.682921ea.chunk.js.map",
+    "runtime-main.js": "/robofinder/static/js/runtime-main.32f3a37a.js",
+    "runtime-main.js.map": "/robofinder/static/js/runtime-main.32f3a37a.js.map",
+    "static/css/2.6d7c7915.chunk.css": "/robofinder/static/css/2.6d7c7915.chunk.css",
+    "static/js/2.8e0fc328.chunk.js": "/robofinder/static/js/2.8e0fc328.chunk.js",
+    "static/js/2.8e0fc328.chunk.js.map": "/robofinder/static/js/2.8e0fc328.chunk.js.map",
+    "static/js/3.a2223b9b.chunk.js": "/robofinder/static/js/3.a2223b9b.chunk.js",
+    "static/js/3.a2223b9b.chunk.js.map": "/robofinder/static/js/3.a2223b9b.chunk.js.map",
+    "index.html": "/robofinder/index.html",
+    "static/css/2.6d7c7915.chunk.css.map": "/robofinder/static/css/2.6d7c7915.chunk.css.map",
+    "static/css/main.d499ce04.chunk.css.map": "/robofinder/static/css/main.d499ce04.chunk.css.map",
+    "static/js/2.8e0fc328.chunk.js.LICENSE.txt": "/robofinder/static/js/2.8e0fc328.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.32f3a37a.js",
+    "static/css/2.6d7c7915.chunk.css",
+    "static/js/2.8e0fc328.chunk.js",
+    "static/css/main.d499ce04.chunk.css",
+    "static/js/main.682921ea.chunk.js"
+  ]
+}
