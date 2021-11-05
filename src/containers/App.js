@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import CardList from '../components/CardList';
 import Scroll from "../components/Scroll";
 import SearchBox from '../components/SearchBox';
+import ErrorBoundry from '../components/ErrorBoundry'
 
 class App extends Component {
     /*
@@ -62,14 +63,27 @@ class App extends Component {
                 <SearchBox searchChange={this.onSearchChange}/>
                 <hr />
                 <Scroll>
-                    <CardList robots={this.getFilteredRobot()}/>
+                    <ErrorBoundry>
+                        <CardList robots={this.getFilteredRobot()}/>
+                    </ErrorBoundry>
                 </Scroll>
             </div>  
         );
     }
+    // if (true) {
+    //     throw Error("NOOOOOOO!");
+    // }
+
+    getErrorBoundedApp() {
+        return (
+            <ErrorBoundry>
+                {(!this.getNumberOfRobots()) ? this.getLoadingState() : this.getLoadedState()}
+            </ErrorBoundry>
+        );
+    }
 
     render() {
-        return (!this.getNumberOfRobots()) ? this.getLoadingState() : this.getLoadedState();
+        return this.getErrorBoundedApp();
     }
 }
 
