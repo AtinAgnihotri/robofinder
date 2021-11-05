@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import CardList from './CardList';
-import { robots } from "./robots";
+// import { robots } from "./robots";
+import Scroll from "./Scroll";
 import SearchBox from './SearchBox';
 
 class App extends Component {
+    /*
+        constructor >> render >> componentDidMount >> render
+    */
     constructor() {
         super();
         this.state = {
@@ -31,13 +35,19 @@ class App extends Component {
     }
 
     componentDidMount() {
-        let current = this;
-        console.log(this.state.robots)
-        setTimeout(function () {
+        // let current = this;
+        // console.log(this.state.robots)
+        // setTimeout(function () {
             
-            console.log("Robots loaded")
-            current.setState({ robots: robots });
-        }, 1000);
+        //     console.log("Robots loaded")
+        //     current.setState({ robots: robots });
+        // }, 1000);
+        fetch("https://jsonplaceholder.typicode.com/users")
+            .then(response => response.json())
+            .then(users => {
+                console.log(users);
+                this.setState({ robots: users});
+            });
         
     }
 
@@ -50,14 +60,20 @@ class App extends Component {
             return nameMatch || userNameMatch || emailMatch;
         });
 
-        return(
-            <div className="tc">
-                <h1 className="f2">Robofinder</h1>
-                <SearchBox searchChange={this.onSearchChange}/>
-                <hr />
-                <CardList robots={filteredRobots}/>
-            </div>  
-        );
+        if (this.state.robots.length === 0) {
+            return <h1 className="f2 tc">Loading . . .</h1>
+        } else {
+            return(
+                <div className="tc">
+                    <h1 className="f2">Robofinder</h1>
+                    <SearchBox searchChange={this.onSearchChange}/>
+                    <hr />
+                    <Scroll>
+                        <CardList robots={filteredRobots}/>
+                    </Scroll>
+                </div>  
+            );
+        }
     }
 }
 
