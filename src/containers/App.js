@@ -51,21 +51,25 @@ class App extends Component {
         return this.state.robots.length;
     }
 
+    getLoadingState() {
+        return <h1 className="f2 tc">Loading . . .</h1>;
+    }
+
+    getLoadedState() {
+        return(
+            <div className="tc">
+                <h1 className="f2">Robofinder</h1>
+                <SearchBox searchChange={this.onSearchChange}/>
+                <hr />
+                <Scroll>
+                    <CardList robots={this.getFilteredRobot()}/>
+                </Scroll>
+            </div>  
+        );
+    }
+
     render() {
-        if (this.getNumberOfRobots() === 0) {
-            return <h1 className="f2 tc">Loading . . .</h1>
-        } else {
-            return(
-                <div className="tc">
-                    <h1 className="f2">Robofinder</h1>
-                    <SearchBox searchChange={this.onSearchChange}/>
-                    <hr />
-                    <Scroll>
-                        <CardList robots={this.getFilteredRobot()}/>
-                    </Scroll>
-                </div>  
-            );
-        }
+        return (!this.getNumberOfRobots()) ? this.getLoadingState() : this.getLoadedState();
     }
 }
 
