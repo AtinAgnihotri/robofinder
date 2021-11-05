@@ -7,7 +7,7 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            robots: robots,
+            robots: [],
             searchField: ""
         }
     }
@@ -30,9 +30,20 @@ class App extends Component {
         // }
     }
 
+    componentDidMount() {
+        let current = this;
+        console.log(this.state.robots)
+        setTimeout(function () {
+            
+            console.log("Robots loaded")
+            current.setState({ robots: robots });
+        }, 1000);
+        
+    }
+
     render() {
         const searchFieldValue = this.state.searchField;
-        const filteredRobots = robots.filter(robot => {
+        const filteredRobots = this.state.robots.filter(robot => {
             const nameMatch = robot.name.toLowerCase().includes(searchFieldValue.toLowerCase());
             const userNameMatch = robot.username.toLowerCase().includes(searchFieldValue);
             const emailMatch = robot.email.toLowerCase().includes(searchFieldValue.toLowerCase());
