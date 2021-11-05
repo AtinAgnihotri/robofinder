@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import CardList from '../components/CardList';
-// import { robots } from "./robots";
 import Scroll from "../components/Scroll";
 import SearchBox from '../components/SearchBox';
 
@@ -17,21 +16,7 @@ class App extends Component {
     }
 
     onSearchChange = (event) => {
-        // console.log(event.target.value);
-        // const searchFieldValue = event.target.value;
         this.setState({searchField: event.target.value});
-        // this.state.searchField = searchFieldValue;
-        // if (this.state.searchField !== "") {
-        //     const filteredRobots = robots.filter(robot => {
-        //         const nameMatch = robot.name.toLowerCase().includes(searchFieldValue.toLowerCase());
-        //         const userNameMatch = robot.username.toLowerCase().includes(searchFieldValue);
-        //         const emailMatch = robot.email.toLowerCase().includes(searchFieldValue.toLowerCase());
-        //         return nameMatch || userNameMatch || emailMatch;
-        //     });
-        //     // this.state.robots
-        // } else {
-        //     this.state.robots = robots;
-        // }
     }
 
     componentDidMount() {
@@ -51,16 +36,23 @@ class App extends Component {
         
     }
 
-    render() {
-        const searchFieldValue = this.state.searchField;
-        const filteredRobots = this.state.robots.filter(robot => {
-            const nameMatch = robot.name.toLowerCase().includes(searchFieldValue.toLowerCase());
-            const userNameMatch = robot.username.toLowerCase().includes(searchFieldValue);
-            const emailMatch = robot.email.toLowerCase().includes(searchFieldValue.toLowerCase());
+    getFilteredRobot() {
+        const {robots, searchField} = this.state;
+        const searchFieldLowerCased = searchField.toLowerCase();
+        return robots.filter(robot => {
+            const nameMatch = robot.name.toLowerCase().includes(searchFieldLowerCased);
+            const userNameMatch = robot.username.toLowerCase().includes(searchFieldLowerCased);
+            const emailMatch = robot.email.toLowerCase().includes(searchFieldLowerCased);
             return nameMatch || userNameMatch || emailMatch;
         });
+    }
 
-        if (this.state.robots.length === 0) {
+    getNumberOfRobots() {
+        return this.state.robots.length;
+    }
+
+    render() {
+        if (this.getNumberOfRobots() === 0) {
             return <h1 className="f2 tc">Loading . . .</h1>
         } else {
             return(
@@ -69,7 +61,7 @@ class App extends Component {
                     <SearchBox searchChange={this.onSearchChange}/>
                     <hr />
                     <Scroll>
-                        <CardList robots={filteredRobots}/>
+                        <CardList robots={this.getFilteredRobot()}/>
                     </Scroll>
                 </div>  
             );
